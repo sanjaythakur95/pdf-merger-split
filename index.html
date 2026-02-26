@@ -1,29 +1,200 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>PDF Merger</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>PDFMagic – All PDF Tools, Free & Online</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fraunces:ital,wght@0,700;0,900;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-  <div class="container">
-    <h1>📄 PDF Merger</h1>
-    <p class="subtitle">Select multiple PDF files to merge them into one</p>
 
-    <label class="upload-area" id="uploadArea">
-      <input type="file" id="pdfInput" accept=".pdf" multiple hidden />
-      <span class="upload-icon">⬆️</span>
-      <span>Click to select PDFs or drag & drop here</span>
-    </label>
+<!-- HEADER -->
+<header id="header">
+  <div class="header-inner">
+    <a href="#" class="logo" onclick="showHome();return false;">PDF<span>Magic</span></a>
+    <nav class="main-nav">
+      <a href="#" onclick="showHome();return false;">All Tools</a>
+      <a href="#" onclick="openTool('merge');return false;">Merge</a>
+      <a href="#" onclick="openTool('split');return false;">Split</a>
+      <a href="#" onclick="openTool('compress');return false;">Compress</a>
+      <a href="#" onclick="openTool('rotate');return false;">Rotate</a>
+      <a href="#" onclick="openTool('watermark');return false;">Watermark</a>
+    </nav>
+    <div class="header-badge">✦ 100% Free</div>
+  </div>
+</header>
 
-    <ul id="fileList"></ul>
+<!-- HOME PAGE -->
+<div id="homePage">
 
-    <button id="mergeBtn" disabled>Merge PDFs</button>
-    <p id="status"></p>
+  <section class="hero">
+    <div class="hero-blob b1"></div>
+    <div class="hero-blob b2"></div>
+    <div class="hero-blob b3"></div>
+    <div class="hero-inner">
+      <div class="hero-pill">✦ No uploads · No limits · No sign-up</div>
+      <h1>The PDF Toolkit<br/><em>Built for Everyone</em></h1>
+      <p class="hero-sub">Merge, split, compress, rotate, watermark & more. Everything runs in your browser — your files stay yours.</p>
+      <button class="btn-hero" onclick="document.getElementById('toolsGrid').scrollIntoView({behavior:'smooth'})">
+        Explore All Tools ↓
+      </button>
+    </div>
+  </section>
+
+  <section class="tools-section" id="toolsGrid">
+    <div class="section-eyebrow">✦ PDF Tools</div>
+    <h2 class="section-h2">What can we help with?</h2>
+
+    <div class="cards-grid">
+
+      <div class="tcard" onclick="openTool('merge')" style="--ca:#ff5722;--cb:#ff9800">
+        <div class="tcard-glow"></div>
+        <div class="tcard-icon">
+          <svg viewBox="0 0 52 52" fill="none"><rect x="2" y="8" width="20" height="28" rx="3" fill="white" opacity=".25"/><rect x="14" y="12" width="20" height="28" rx="3" fill="white" opacity=".45"/><rect x="26" y="16" width="20" height="28" rx="3" fill="white" opacity=".75"/><path d="M40 32l5-4-5-4" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h3>Merge PDF</h3>
+        <p>Combine multiple PDFs into one perfectly ordered file.</p>
+        <div class="tcard-tag">Multiple files</div>
+      </div>
+
+      <div class="tcard" onclick="openTool('split')" style="--ca:#9c27b0;--cb:#673ab7">
+        <div class="tcard-glow"></div>
+        <div class="tcard-icon">
+          <svg viewBox="0 0 52 52" fill="none"><rect x="10" y="4" width="32" height="42" rx="3" fill="white" opacity=".4"/><line x1="2" y1="26" x2="50" y2="26" stroke="white" stroke-width="2.5" stroke-dasharray="5 3" stroke-linecap="round"/><path d="M2 26l7 7M2 26l7-7" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M50 26l-7 7M50 26l-7-7" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h3>Split PDF</h3>
+        <p>Extract pages or split by range, intervals, or page-by-page.</p>
+        <div class="tcard-tag">Page ranges</div>
+      </div>
+
+      <div class="tcard" onclick="openTool('compress')" style="--ca:#0097a7;--cb:#00bcd4">
+        <div class="tcard-glow"></div>
+        <div class="tcard-icon">
+          <svg viewBox="0 0 52 52" fill="none"><rect x="8" y="4" width="36" height="44" rx="3" fill="white" opacity=".35"/><path d="M26 14v18M18 26l8 8 8-8" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 40h20" stroke="white" stroke-width="2.5" stroke-linecap="round"/></svg>
+        </div>
+        <h3>Compress PDF</h3>
+        <p>Shrink file size while keeping the highest possible quality.</p>
+        <div class="tcard-tag">Reduce size</div>
+      </div>
+
+      <div class="tcard" onclick="openTool('rotate')" style="--ca:#2e7d32;--cb:#4caf50">
+        <div class="tcard-glow"></div>
+        <div class="tcard-icon">
+          <svg viewBox="0 0 52 52" fill="none"><rect x="14" y="10" width="24" height="32" rx="3" fill="white" opacity=".45"/><path d="M38 12a18 18 0 11-24 0" stroke="white" stroke-width="2.5" stroke-linecap="round"/><path d="M38 6v6h-6" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h3>Rotate PDF</h3>
+        <p>Rotate pages 90°, 180°, or 270° individually or all at once.</p>
+        <div class="tcard-tag">Orientation fix</div>
+      </div>
+
+      <div class="tcard" onclick="openTool('watermark')" style="--ca:#e65100;--cb:#f57c00">
+        <div class="tcard-glow"></div>
+        <div class="tcard-icon">
+          <svg viewBox="0 0 52 52" fill="none"><rect x="8" y="4" width="36" height="44" rx="3" fill="white" opacity=".25"/><text x="26" y="34" text-anchor="middle" fill="white" font-size="22" font-weight="900" opacity=".85" transform="rotate(-30 26 26)">©</text></svg>
+        </div>
+        <h3>Watermark PDF</h3>
+        <p>Stamp custom text watermarks on every page of your PDF.</p>
+        <div class="tcard-tag">Branding</div>
+      </div>
+
+      <div class="tcard" onclick="openTool('pagenumber')" style="--ca:#c2185b;--cb:#e91e63">
+        <div class="tcard-glow"></div>
+        <div class="tcard-icon">
+          <svg viewBox="0 0 52 52" fill="none"><rect x="8" y="4" width="36" height="44" rx="3" fill="white" opacity=".3"/><rect x="16" y="14" width="20" height="2.5" rx="1.25" fill="white"/><rect x="16" y="21" width="15" height="2.5" rx="1.25" fill="white"/><rect x="16" y="28" width="18" height="2.5" rx="1.25" fill="white"/><circle cx="26" cy="40" r="5" fill="white" opacity=".8"/><text x="26" y="43" text-anchor="middle" fill="#c2185b" font-size="6" font-weight="800">1</text></svg>
+        </div>
+        <h3>Page Numbers</h3>
+        <p>Add stylish page numbers to any position on your PDF pages.</p>
+        <div class="tcard-tag">Numbering</div>
+      </div>
+
+      <div class="tcard" onclick="openTool('reorder')" style="--ca:#00695c;--cb:#00897b">
+        <div class="tcard-glow"></div>
+        <div class="tcard-icon">
+          <svg viewBox="0 0 52 52" fill="none"><rect x="4" y="6" width="44" height="11" rx="2.5" fill="white" opacity=".35"/><rect x="4" y="21" width="44" height="11" rx="2.5" fill="white" opacity=".55"/><rect x="4" y="36" width="44" height="11" rx="2.5" fill="white" opacity=".8"/><path d="M44 9h6M44 26.5h6M44 41.5h6" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
+        </div>
+        <h3>Reorder Pages</h3>
+        <p>Drag and rearrange PDF pages into any order you need.</p>
+        <div class="tcard-tag">Page order</div>
+      </div>
+
+      <div class="tcard" onclick="openTool('deletepage')" style="--ca:#b71c1c;--cb:#f44336">
+        <div class="tcard-glow"></div>
+        <div class="tcard-icon">
+          <svg viewBox="0 0 52 52" fill="none"><rect x="8" y="4" width="36" height="44" rx="3" fill="white" opacity=".3"/><path d="M20 22l12 12M32 22L20 34" stroke="white" stroke-width="2.5" stroke-linecap="round"/></svg>
+        </div>
+        <h3>Delete Pages</h3>
+        <p>Select and remove specific pages from your PDF document.</p>
+        <div class="tcard-tag">Cleanup</div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="features-strip">
+    <div class="feat"><span>🔒</span><div><strong>100% Private</strong><small>Files never leave your browser</small></div></div>
+    <div class="feat-div"></div>
+    <div class="feat"><span>⚡</span><div><strong>Instant Results</strong><small>No upload delays</small></div></div>
+    <div class="feat-div"></div>
+    <div class="feat"><span>🆓</span><div><strong>Always Free</strong><small>No watermarks, no limits</small></div></div>
+    <div class="feat-div"></div>
+    <div class="feat"><span>📱</span><div><strong>Any Device</strong><small>Desktop, tablet, mobile</small></div></div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="footer-top">
+      <div class="logo" style="font-size:26px;margin-bottom:8px">PDF<span>Magic</span></div>
+      <p>Free PDF tools powered by Sanjay Thakur. No servers. No sign-ups. Forever free.</p>
+    </div>
+    <div class="footer-links">
+      <a href="#" onclick="openTool('merge');return false;">Merge PDF</a>
+      <a href="#" onclick="openTool('split');return false;">Split PDF</a>
+      <a href="#" onclick="openTool('compress');return false;">Compress PDF</a>
+      <a href="#" onclick="openTool('rotate');return false;">Rotate PDF</a>
+      <a href="#" onclick="openTool('watermark');return false;">Watermark PDF</a>
+      <a href="#" onclick="openTool('pagenumber');return false;">Page Numbers</a>
+    </div>
+    <div class="footer-bottom">© 2026 PDFMagic · Built with ❤️ for the web</div>
+  </footer>
+</div>
+
+<!-- TOOL PAGE -->
+<div id="toolPage" class="hidden">
+
+  <div class="tool-topbar" id="toolTopbar">
+    <button class="back-btn" onclick="showHome()">← All Tools</button>
+    <div class="tool-topbar-info">
+      <div class="tool-topbar-icon" id="ttIcon"></div>
+      <div>
+        <div class="tool-topbar-title" id="ttTitle"></div>
+        <div class="tool-topbar-desc" id="ttDesc"></div>
+      </div>
+    </div>
   </div>
 
-  <script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
-  <script src="script.js"></script>
+  <div class="workspace">
+
+    <div class="dropzone" id="dropzone">
+      <input type="file" id="fileInput" accept=".pdf" hidden/>
+      <div class="dz-content">
+        <div class="dz-emoji" id="dzEmoji">📄</div>
+        <h3 id="dzTitle">Drop your PDF here</h3>
+        <p>or <span class="dz-link" id="dzBrowse">browse from your computer</span></p>
+        <div class="dz-info">PDF files only · Processed entirely in your browser</div>
+      </div>
+    </div>
+
+    <div id="workArea" style="display:none">
+      <div class="work-card" id="workCard"></div>
+      <div class="result-area" id="resultArea"></div>
+    </div>
+
+  </div>
+</div>
+
+<script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+<script src="https://unpkg.com/jszip@3.10.1/dist/jszip.min.js"></script>
+<script src="script.js"></script>
 </body>
 </html>

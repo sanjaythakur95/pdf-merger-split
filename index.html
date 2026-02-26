@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PDF Merger</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>📄 PDF Merger</h1>
+    <p class="subtitle">Select multiple PDF files to merge them into one</p>
+
+    <label class="upload-area" id="uploadArea">
+      <input type="file" id="pdfInput" accept=".pdf" multiple hidden />
+      <span class="upload-icon">⬆️</span>
+      <span>Click to select PDFs or drag & drop here</span>
+    </label>
+
+    <ul id="fileList"></ul>
+
+    <button id="mergeBtn" disabled>Merge PDFs</button>
+    <p id="status"></p>
+  </div>
+
+  <script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
